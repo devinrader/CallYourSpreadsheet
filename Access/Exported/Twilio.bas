@@ -29,8 +29,8 @@ Function SendMessage(fromNumber As String, toNumber As String, body As String)
     http.setRequestHeader "Content-Type", "application/x-www-form-urlencoded"
     
     Dim postData As String
-    postData = "From=" & fromNumber _
-                & "&To=" & toNumber _
+    postData = "From=" & URLEncode(fromNumber, True) _
+                & "&To=" & URLEncode(toNumber, True) _
                 & "&Body=" & body
     
     Debug.Print postData
@@ -99,8 +99,8 @@ Function MakeCall(fromNumber As String, toNumber As String, message As String)
     http.setRequestHeader "Content-Type", "application/x-www-form-urlencoded"
     
     Dim postData As String
-    postData = "From=" & fromNumber _
-                & "&To=" & toNumber _
+    postData = "From=" & URLEncode(fromNumber, True) _
+                & "&To=" & URLEncode(toNumber, True) _
                 & "&Url=http://twimlets.com/message?Message=" & URLEncode(URLEncode(message, True))
     
     Debug.Print postData
